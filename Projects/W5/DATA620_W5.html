@@ -34157,10 +34157,10 @@ zWzc8t6XZmZmZi3gljIzMzOzFnBRZmZmZtYCLsrMzMzMWsBFmZmZmVkLuCgzMzMzawEXZWZmZmYt
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Eigenvector-Centrality">Eigenvector Centrality<a class="anchor-link" href="#Eigenvector-Centrality">&#182;</a></h3><p>Eigenvector centrality is a spectral centrality measure, based on the spectral properties of the adjacency matrix, $A$.</p>
-<p>We define the centrality of a node (vertex) $i$ as the average of the entrality of its neighbours:</p>
+<p>We define the centrality of a node (vertex) $i$ as the average of the centrality of its neighbours:</p>
 $$c_{i}=\frac{1}{\lambda}\sum_{j=1,N}{a_{ij}c_{j}}$$<p>The above equation can be written in vectorial form as:</p>
 $$Ac=\lambda c$$<p>This measure of centrality is an eigenvector of the adjacency matrix, $A$, where $\lambda$ and $c$ are the corresponding eigenvalue and eigenvector respectively.</p>
-<p>If if the graph is (strongly) connected (or equivalently, $A$ is irreducible) then the eigenvector, $c$, is both unique and positive.</p>
+<p>If the graph is (strongly) connected (or equivalently, $A$ is irreducible) then the eigenvector, $c$, is both unique and positive.</p>
 <p>Using this measure, nodes are deemed central if they are connected to other highly central nodes.</p>
 
 </div>
@@ -34710,7 +34710,7 @@ wP8H34ZJu+Zv9MYAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There appears to be a significant overlap in the rankings of the 'Energy' sector stocks by weighted degree and eigenvector centrality. These rankings, however, are not easily interpreted. There are only small differences across stocks in the sector for both degree and eigenvector centrality.</p>
+<p>There appears to be a significant overlap in the rankings of the 'Energy' sector stocks by weighted degree and eigenvector centrality. These rankings, however, are not easily interpreted. There are only small differences across stocks in the sector for both degree and eigenvector centrality. There is no obvious relationship between either of these centrality rankings and our categorical variable, sub-industry.</p>
 
 </div>
 </div>
@@ -35940,9 +35940,8 @@ RK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Based on the minimum spanning tree, we can identify hubs and clusters that - at least partially - align with our sub-industry categorical variable, sub-industry.</p>
-<p>The minimum spanning tree shows a large number of stocks having a single link, while other stocks have several links. Some of these stocks act as the "hub" of a local cluster. For instance, EOG Resources Inc. (EOG) appears to be central to the movement of stocks within the 'Energy' sector, particularly within the largest sub-industry, 'Oil &amp; Gas Exploration &amp; Production'.</p>
-<p>Within the energy sector, Schlumberger Ltd. (SLB) also appears to be central, with a degree nearly as high as EOG Resources Inc (see table below).</p>
+<p>Based on the minimum spanning tree, we can identify hubs and clusters that - at least partially - align with our categorical variable, sub-industry.</p>
+<p>The minimum spanning tree shows a large number of stocks having a single link, while other stocks have several links. Some of these stocks act as the "hub" of a local cluster. For instance, EOG Resources Inc. (EOG) appears to be central to the movement of stocks within the energy sector, particularly within the largest sub-industry, 'Oil &amp; Gas Exploration &amp; Production'. Schlumberger Ltd. (SLB) also appears to be central, with a degree nearly as high as EOG Resources Inc (see table below).</p>
 <p>Based on the minimum spanning tree, it appears as though EOG Resources Inc. and Schlumberger Ltd. could be major drivers of co-movement within the energy sector.</p>
 
 </div>
@@ -36462,7 +36461,7 @@ JEmq6P8Dj8Priqk9E1IAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Notice that we now observe a single stock - EOG Resources Inc. (EOG) - with a degree of 9. None of the stocks in the top 5 for either the weighted degree or eigenvector centrality of the unfiltered return correlation network appear significant based on the minimal spanning tree (MST) representation of the graph. In fact, the stocks with the top 5 weighted degrees of the minimal spanning tree (MST) are in the bottom of the eigenvector centrality ranking. We also observe more alignment between our sub-industry categorial variable and the identified clusters.</p>
+<p>Notice that we now observe a single stock - EOG Resources Inc. (EOG) - with a degree of 9. None of the stocks in the top 5 for either the weighted degree or eigenvector centrality of the unfiltered return correlation network appear significant based on the minimal spanning tree (MST) representation of the graph. In fact, the stocks with the top 5 weighted degrees of the minimal spanning tree (MST) are in the bottom of the eigenvector centrality ranking. We also observe more alignment between our sub-industry categorial variable and the identified clusters once the correlation matrix has been transformed into the minimum spanning tree (MST).</p>
 
 </div>
 </div>
@@ -36474,8 +36473,9 @@ JEmq6P8Dj8Priqk9E1IAAAAASUVORK5CYII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h2><p>Prior to any filtering of the log-return correlation network, it was difficult to find clear relationships between stocks using common centrality metrics. Metrics such as weighted degree and eigenvector centrality provided only limited information about the structure of the network prior to filtering.</p>
 <p>We construct a minimum spanning tree (MST) and reexamine weighted degree. After such filtering of the log-return correlation network, we can identify hubs and clusters that - at least partially - align with our sub-industry categorical variable.</p>
-<p>We can identify both stocks that tend to be central to common movement among groups of stocks within the universe under study, and diversifying stocks that appear to be driven predominately by uncommon (specific) factors. Additional categorical variables - such as capitalization, known large customer lists, or accounting statement data - might help improve our understanding of the identified hubs.</p>
-<p>The minimum spanning tree representation of the log-return correlation network provides a hierarchical classification system that can potentially be used to identify relatively homogeneous baskets of stocks that can be considered 'similar' for the purposes of risk management.</p>
+<p>We can identify both stocks that tend to be central to common movement among groups of stocks within the universe under study, and diversifying stocks that appear to be driven predominately by uncommon (specific) factors. Additional categorical variables - such as capitalization, customer/supplier lists, or accounting statement data - might help improve our understanding of the identified hubs.</p>
+<p>The minimum spanning tree representation of the log-return correlation network provides a hierarchical classification system that can potentially be used to identify relatively homogeneous baskets of stocks that can be considered 'similar' for the purposes of risk management and/or trading.</p>
+<p>Further research is required to determine the stability of identified hubs over time.</p>
 
 </div>
 </div>
