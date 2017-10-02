@@ -33611,8 +33611,13 @@ SUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Centrality-Measures">Centrality Measures<a class="anchor-link" href="#Centrality-Measures">&#182;</a></h2><p>In this section, we will look at centrality metrics before and after applying Prim's algorithm to transform our correlation network to its corresponding minimal spanning tree equivalent.</p>
-<h3 id="Weighted-Degree">Weighted Degree<a class="anchor-link" href="#Weighted-Degree">&#182;</a></h3><p>[Define degree]</p>
+<h2 id="Centrality-Measures">Centrality Measures<a class="anchor-link" href="#Centrality-Measures">&#182;</a></h2><p>Generally, measures of node (vertex) or edge centrality help us quantify the importance of each element within a whole network.</p>
+<p>In this section, we will look at centrality metrics before and after applying Prim's algorithm to transform our correlation network to its corresponding minimal spanning tree equivalent.</p>
+<h3 id="Weighted-Degree-Centrality">Weighted Degree Centrality<a class="anchor-link" href="#Weighted-Degree-Centrality">&#182;</a></h3><p>Degree centrality is a 'local' measure focused on identifying nodes with the largest number of edges (i.e., number of connections).</p>
+<p>The degree, $k_{i}$, of node, $i$, is the sum of the elements, $a_{i,j}$ of the network adjacency matrix, $A$, on the columns $j$:</p>
+$$k_{i}=\sum_{j=1,n}a_{i,j}$$<p>where $i$ and $j$ are indices on the rows and columns of the adjacency matrix.</p>
+<p>In the case of a weighted graph - like our log-return correlation matrix - we distinguish between the number of connections (degree) and the weighted degree (strength), where weighted degree is the sum of the relative weights of the edges:</p>
+$$s_{i}=\sum_{j=1,n} a_{i,j}^{w}$$<p>where every element, $a_{i,j}^{w}$, takes the value of the weight between $i$ and $j$.</p>
 
 </div>
 </div>
@@ -34715,7 +34720,12 @@ wP8H34ZJu+Zv9MYAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Minimum-Spanning-Tree">Minimum Spanning Tree<a class="anchor-link" href="#Minimum-Spanning-Tree">&#182;</a></h3><p>In the following section, we filter the energy correlation network using Prim's algorithm to create the minimal spanning tree (MST).</p>
+<h3 id="Minimum-Spanning-Tree">Minimum Spanning Tree<a class="anchor-link" href="#Minimum-Spanning-Tree">&#182;</a></h3><p>Constructed based on the so-called 'nearest neighbour single linkage nodes algorithm', a minimum spanning tree (MST) is a subset of the edges of a connected, edge-weighted undirected graph that connects all the nodes (vertices) together without any cycles, in such a way as to minimize total edge weight. </p>
+<p>Informally, Prim's algorithm for constructing the minimum spanning tree is as follows:</p>
+<p>1) Initialize a tree with a single - arbitrarily chosen - node (vertex) from the graph.</p>
+<p>2) Grow the tree by one edge: find the minimum-weight edge among the edges that connect the tree to nodes (vertices) not yet in the tree, and add it to the tree.</p>
+<p>3) Repeat step 2 until all nodes (vertices) are in the tree.</p>
+<p>In the following section, we filter the energy correlation network using Prim's algorithm to create the minimal spanning tree (MST).</p>
 <p>We create the minimal spanning tree (MST) representation of the energy stock correlation network and plot the minimum spanning tree (MST).</p>
 
 </div>
@@ -36466,6 +36476,19 @@ JEmq6P8Dj8Priqk9E1IAAAAASUVORK5CYII=
 <p>We construct a minimum spanning tree (MST) and reexamine weighted degree. After such filtering of the log-return correlation network, we can identify hubs and clusters that - at least partially - align with our sub-industry categorical variable.</p>
 <p>We can identify both stocks that tend to be central to common movement among groups of stocks within the universe under study, and diversifying stocks that appear to be driven predominately by uncommon (specific) factors. Additional categorical variables - such as capitalization, known large customer lists, or accounting statement data - might help improve our understanding of the identified hubs.</p>
 <p>The minimum spanning tree representation of the log-return correlation network provides a hierarchical classification system that can potentially be used to identify relatively homogeneous baskets of stocks that can be considered 'similar' for the purposes of risk management.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><p>Caldarelli, G. &amp; Chessa, A. (2016). Data Science &amp; Complex Networks. Oxford University Press.</p>
+<p>Djauhari, M., &amp; Gan, S. (2015). Optimality problem of network topology in stocks market analysis. Physica A: Statistical Mechanics and Its Applications, 419, 108-114.</p>
+<p>Kouznetsov, A. &amp; Tsvetovat, M. (2011) Social Network Analysis for Startups. O’Reilly Media.</p>
+<p>Mantegna, R. N. (1999). Hierarchical structure in financial markets. The European Physical Journal B-Condensed Matter and Complex Systems, 11(1), 193-197.</p>
 
 </div>
 </div>
